@@ -36,6 +36,7 @@ class Login extends React.Component {
 
   render() {
     const { buttonStatus, loaded, loading } = this.state;
+    // Mais uma vez minha amiga Júlia me ajudou a organizar o meu código!
     const load = (
       <div data-testid="page-login">
         <form>

@@ -44,7 +44,6 @@ class Search extends React.Component {
         } return this.setState({ errorStatus: true });
       })
       .then(() => this.setState({ loadingAlbuns: false }));
-    // .catch(() => this.setState({ errorStatus: true }));
     this.setState({
       // Fernando Mós me ajudou a resolver o problema do requisito 2;
       phrase: artist,

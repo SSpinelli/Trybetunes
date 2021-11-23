@@ -29,8 +29,9 @@ class Album extends React.Component {
         { songs.map((song, index) => (
           index === 0 ? (
             <div key={ song.trackId }>
-              <h2 data-testid="album-name">{ song.collectionName }</h2>
               <h3 data-testid="artist-name">{ song.artistName }</h3>
+              <img src={ song.artworkUrl100 } alt={ song.trackName } />
+              <h2 data-testid="album-name">{ song.collectionName }</h2>
             </div>
           ) : <MusicCard song={ song } />
         )) }

@@ -1,0 +1,39 @@
+.header-header {
+  background-color: #545454;
+  border-radius: 13px 13px 0 0;
+  display: flex;
+  height: 10vh;
+  width: 170vh;
+}
+
+.header-div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-nav-ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-nav-ul li {
+  color: #8cbfaf;
+  font-family: monospace;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.header-h3 {
+  color: #8cbfaf;
+  margin-left: 30px;
+  width: 305px;
+}
+
+.header-h1 {
+  color: #b7cc18;
+  font-family: monospace;
+  font-size: 50px;
+}

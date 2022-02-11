@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import MyRoutes from './MyRoutes';
+import Routes from './Routes';
 
 // Encontrei essa forma de organizar o código com Júlia Barcelos :)
 
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div>
         <BrowserRouter>
-          <MyRoutes />
+          <Routes />
         </BrowserRouter>
       </div>
     );

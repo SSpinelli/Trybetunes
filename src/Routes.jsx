@@ -1,19 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Login from './pages/Login';
-import Search from './pages/Search';
 import Album from './pages/Album';
 import Favorites from './pages/Favorites';
+import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
-import NotFound from './pages/NotFound';
-import Header from './components/Header';
+import Search from './pages/Search';
 
-class MyRoutes extends React.Component {
+class Routes extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/search" component={ Search } />
@@ -21,11 +19,11 @@ class MyRoutes extends React.Component {
           <Route exact path="/favorites" component={ Favorites } />
           <Route exact path="/profile" component={ Profile } />
           <Route exact path="/profile/edit" component={ ProfileEdit } />
-          <Route exact path="/*" component={ NotFound } />
+          <Route path="*" component={ NotFound } />
         </Switch>
       </div>
     );
   }
 }
 
-export default MyRoutes;
+export default Routes;

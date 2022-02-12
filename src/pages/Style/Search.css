@@ -44,6 +44,7 @@
 
 .search-section {
   background-color: #545454;
+  border-radius: 0 0 13px 13px;
   display: flex;
   flex-flow: row wrap;
   height: 50vh;

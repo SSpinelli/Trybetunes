@@ -50,6 +50,7 @@ class Search extends React.Component {
               data-testid="search-artist-input"
               onChange={ this.handleChange }
               name="searchedText"
+              placeholder="Artista ou Banda..."
               type="text"
               value={ searchedText }
             />

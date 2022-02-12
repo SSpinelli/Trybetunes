@@ -68,7 +68,7 @@ MusicCard.propTypes = {
   musicObj: PropTypes.shape({
     trackName: PropTypes.string,
     previewUrl: PropTypes.string,
-    trackId: PropTypes.string,
+    trackId: PropTypes.number,
   }).isRequired,
 };
 

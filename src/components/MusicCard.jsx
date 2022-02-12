@@ -2,37 +2,54 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Style/MusicCard.css';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import Loading from './Loading';
 
 class MusicCard extends React.Component {
   constructor() {
     super();
+    this.state = {
+      loading: false,
+      isFavorite: false,
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick({ target }) {
     const { musicObj } = this.props;
 
-    return target.checked ? addSong(musicObj) : removeSong(musicObj);
+    this.setState({ loading: true });
+
+    return target.checked ? (
+      addSong(musicObj)
+        .then(() => this.setState({ loading: false, isFavorite: true }))
+    ) : removeSong(musicObj)
+      .then(() => this.setState({ loading: false, isFavorite: false }));
   }
 
   render() {
     const { musicObj } = this.props;
+    const { loading, isFavorite } = this.state;
     return (
       <div className="music-card-div">
-        <div className="music-card-div-musicName-and-favorite">
-          <h4>{ musicObj.trackName }</h4>
-          <input
-            onClick={ this.handleClick }
-            type="checkbox"
-            data-testid={ `checkbox-music-${musicObj.trackId}` }
-          />
-        </div>
-        <audio data-testid="audio-component" src={ musicObj.previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          <code>audio</code>
-          .
-        </audio>
+        { loading ? <Loading /> : (
+          <>
+            <div className="music-card-div-musicName-and-favorite">
+              <h4>{ musicObj.trackName }</h4>
+              <input
+                checked={ isFavorite }
+                onChange={ this.handleClick }
+                type="checkbox"
+                data-testid={ `checkbox-music-${musicObj.trackId}` }
+              />
+            </div>
+            <audio data-testid="audio-component" src={ musicObj.previewUrl } controls>
+              <track kind="captions" />
+              O seu navegador não suporta o elemento
+              <code>audio</code>
+              .
+            </audio>
+          </>
+        ) }
       </div>
     );
   }

@@ -8,7 +8,7 @@ class MusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      loading: true,
+      loading: false,
       isFavorite: false,
     };
     this.handleClick = this.handleClick.bind(this);

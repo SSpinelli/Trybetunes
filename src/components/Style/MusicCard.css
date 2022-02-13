@@ -19,3 +19,11 @@
   align-items: center;
   display: flex;
 }
+
+.music-card-div-musicName-and-favorite label {
+  margin-left: 40px;
+}
+
+.music-card-div-musicName-and-favorite h4 {
+  width: 150px;
+}

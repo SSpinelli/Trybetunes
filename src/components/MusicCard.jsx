@@ -27,7 +27,9 @@ class MusicCard extends React.Component {
     const { musicObj, fav } = this.props;
     this.setState({ loading: true });
 
-    if (fav) fav(musicObj);
+    if (fav) {
+      fav(musicObj);
+    }
 
     return target.checked ? (
       addSong(musicObj)

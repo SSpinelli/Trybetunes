@@ -16,7 +16,9 @@ class Album extends React.Component {
   componentDidMount() {
     const href = document.URL.split('/')[4];
 
-    getMusics(href).then((album) => this.setState({ musics: album }));
+    getMusics(href)
+      .then((album) => this.setState({ musics: album }))
+      .catch((error) => global.alert(error));
   }
 
   render() {

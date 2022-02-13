@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import './Style/ProfileEdit.css';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -29,7 +30,8 @@ class ProfileEdit extends React.Component {
         image: response.image,
         description: response.description,
         loading: false,
-      }));
+      }))
+      .catch((error) => global.alert(error));
   }
 
   handleChange({ target: { name, value } }) {
@@ -45,7 +47,6 @@ class ProfileEdit extends React.Component {
       image,
       description,
     });
-    window.location.pathname = '/profile';
     this.setState({ loading: false, redirect: true });
   }
 
@@ -65,7 +66,7 @@ class ProfileEdit extends React.Component {
       <div data-testid="page-profile-edit">
         <Header />
         { loading ? <Loading /> : (
-          <form>
+          <form className="profile-edit-form">
             <label htmlFor="edit-input-name">
               Editar nome:
               <input

@@ -47,7 +47,7 @@
   background-color: #7b8a84;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: not-allowed;
   font-family: monospace;
   font-size: 20px;
   font-weight: 700;
@@ -57,4 +57,12 @@
 
 .login-button:enabled {
   background-color: #b7cc18;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 700;
+  height: 30px;
+  width: 308px;
 }

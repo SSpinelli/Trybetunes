@@ -16,7 +16,8 @@ class Profile extends React.Component {
 
   componentDidMount() {
     getUser()
-      .then((response) => this.setState({ user: response, loading: false }));
+      .then((response) => this.setState({ user: response, loading: false }))
+      .catch((error) => global.alert(error));
   }
 
   render() {

@@ -31,7 +31,8 @@ class Favorites extends React.Component {
       .then((response) => this.setState({
         favoriteSongs: response,
         loading: false,
-      }));
+      }))
+      .catch((error) => global.alert(error));
   }
 
   render() {

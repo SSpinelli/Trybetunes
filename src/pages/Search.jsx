@@ -25,7 +25,11 @@ class Search extends React.Component {
     this.setState({ loading: true });
     searchAlbumsAPI(searchedText)
       .then((albuns) => this.setState({ discography: albuns }))
-      .then(() => this.setState({ loading: false, searchedText: '' }));
+      .then(() => this.setState({ loading: false, searchedText: '' }))
+      .catch((error) => {
+        global.alert(error);
+        this.setState({ loading: false });
+      });
 
     this.setState({ artist: searchedText });
   }

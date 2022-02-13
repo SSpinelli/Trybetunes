@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Style/MusicCard.css';
-import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { getFavoriteSongs, addSong, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class MusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      loading: false,
+      loading: true,
       isFavorite: false,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -23,9 +23,8 @@ class MusicCard extends React.Component {
       }));
   }
 
-  handleClick({ target }) {
+  handleChange({ target }) {
     const { musicObj } = this.props;
-
     this.setState({ loading: true });
 
     return target.checked ? (
@@ -46,7 +45,7 @@ class MusicCard extends React.Component {
               <h4>{ musicObj.trackName }</h4>
               <input
                 checked={ isFavorite }
-                onChange={ this.handleClick }
+                onChange={ this.handleChange }
                 type="checkbox"
                 data-testid={ `checkbox-music-${musicObj.trackId}` }
               />

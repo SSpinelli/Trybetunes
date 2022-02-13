@@ -35,7 +35,10 @@ class Album extends React.Component {
               {musics
                 .filter((_music, index) => index > 0)
                 .map((music) => (
-                  <MusicCard key={ music.trackId } musicObj={ music } />
+                  <MusicCard
+                    key={ music.trackId }
+                    musicObj={ music }
+                  />
                 )) }
             </div>
           </section>

@@ -1,0 +1,25 @@
+.favorites-div {
+  align-items: center;
+  background-color: #ede7d5;
+  border-radius: 13px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  margin: 30px 40px;
+  padding: 20px;
+}
+
+.favorites-div img {
+  border-radius: 50%;
+}
+
+.favorites-section {
+  align-items: center;
+  background-color: #7b8a84;
+  display: flex;
+  flex-flow: row wrap;
+  height: 60vh;
+  justify-content: center;
+  overflow-y: scroll;
+  width: 170vh;
+}

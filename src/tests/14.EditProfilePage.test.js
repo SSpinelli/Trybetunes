@@ -154,7 +154,7 @@ describe('14 - Crie o formulário de edição de perfil', () => {
       });
     });
 
-  it('Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil',
+  it.only('Será validado se após salvar as informações a pessoa é redirecionada para a página de exibição de perfil',
     async () => {
       renderPath("/profile/edit");
 

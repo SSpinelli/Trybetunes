@@ -27,27 +27,25 @@ class Profile extends React.Component {
         <section className="profile-section">
           {loading ? <Loading /> : (
             <div className="profile-div">
-              <div>
-                <img
-                  data-testid="profile-image"
-                  src={ user.image }
-                  alt={ `foto de ${user.name}` }
-                />
-                <Link to="/profile/edit">
-                  <button
-                    className="edit-profile-btn"
-                    type="button"
-                  >
-                    Editar perfil
-                  </button>
-                </Link>
-              </div>
+              <img
+                data-testid="profile-image"
+                src={ user.image }
+                alt={ `foto de ${user.name}` }
+              />
               <h3>Nome:</h3>
               <p>{ user.name }</p>
               <h3>Email:</h3>
               <p>{ user.email }</p>
               <h3>Descrição:</h3>
               <p>{ user.description }</p>
+              <Link to="/profile/edit">
+                <button
+                  className="edit-profile-btn"
+                  type="button"
+                >
+                  Editar perfil
+                </button>
+              </Link>
             </div>
           )}
         </section>

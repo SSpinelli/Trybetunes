@@ -24,8 +24,10 @@ class MusicCard extends React.Component {
   }
 
   handleChange({ target }) {
-    const { musicObj } = this.props;
+    const { musicObj, fav } = this.props;
     this.setState({ loading: true });
+
+    if (fav) fav(musicObj);
 
     return target.checked ? (
       addSong(musicObj)
@@ -43,12 +45,16 @@ class MusicCard extends React.Component {
           <>
             <div className="music-card-div-musicName-and-favorite">
               <h4>{ musicObj.trackName }</h4>
-              <input
-                checked={ isFavorite }
-                onChange={ this.handleChange }
-                type="checkbox"
-                data-testid={ `checkbox-music-${musicObj.trackId}` }
-              />
+              <label htmlFor="favorite">
+                Favorita
+                <input
+                  id="favorite"
+                  checked={ isFavorite }
+                  onChange={ this.handleChange }
+                  type="checkbox"
+                  data-testid={ `checkbox-music-${musicObj.trackId}` }
+                />
+              </label>
             </div>
             <audio data-testid="audio-component" src={ musicObj.previewUrl } controls>
               <track kind="captions" />
@@ -69,6 +75,7 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  fav: PropTypes.func.isRequired,
 };
 
 export default MusicCard;

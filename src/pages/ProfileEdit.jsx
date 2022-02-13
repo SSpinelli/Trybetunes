@@ -45,7 +45,8 @@ class ProfileEdit extends React.Component {
       image,
       description,
     });
-    this.setState({ redirect: true, loading: false });
+    window.location.pathname = '/profile';
+    this.setState({ loading: false, redirect: true });
   }
 
   enableButton() {
@@ -113,9 +114,9 @@ class ProfileEdit extends React.Component {
               type="button"
               data-testid="edit-button-save"
               disabled={ isDisabled }
-              onClick={ this.handleClick }
+              onClick={ () => this.handleClick() }
             >
-              Salvar
+              Editar perfil
             </button>
             {redirect && <Redirect to="/profile" />}
           </form>

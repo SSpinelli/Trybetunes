@@ -13,10 +13,17 @@ class Favorites extends React.Component {
       loading: true,
     };
     this.renderFavorites = this.renderFavorites.bind(this);
+    this.favs = this.favs.bind(this);
   }
 
   componentDidMount() {
     this.renderFavorites();
+  }
+
+  async favs(music) {
+    const favs = await getFavoriteSongs();
+    const newFavs = favs.filter((el) => el.trackId !== music.trackId);
+    this.setState({ favoriteSongs: newFavs });
   }
 
   renderFavorites() {
@@ -40,7 +47,7 @@ class Favorites extends React.Component {
                 key={ `${song.trackId} ${index}` }
               >
                 <img src={ song.artworkUrl100 } alt={ song.trackName } />
-                <MusicCard fav={ favoriteSongs } musicObj={ song } />
+                <MusicCard fav={ this.favs } musicObj={ song } />
               </div>
             ))
           )}
